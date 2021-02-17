@@ -112,13 +112,20 @@ class userController extends CI_Controller{
 	{
 		//$this->form_validation->set_rules('uid','User Id','required|is_unique[user.user_id]');
         $this->form_validation->set_rules('uname','User Name','required|callback_user_name_check');
-        $this->form_validation->set_rules('email','Email','required|callback_email_check');
+        $this->form_validation->set_rules('email','Email','required|callback_email_check');      
         $this->form_validation->set_rules('role','User Role','required');
         $this->form_validation->set_rules('dob','Date Of Birth','required');
         $this->form_validation->set_rules('mobile','Mobile','required|numeric');
         $this->form_validation->set_rules('address','Address','required');
-        //$this->form_validation->set_rules('password','Password','required|min_length[5]');
-        //$this->form_validation->set_rules('passconf','Password Conform','required|matches[password]');
+        if ($this->input->post('password')) {
+
+            $this->form_validation->set_rules('password','Password','min_length[5]');
+            $this->form_validation->set_rules('passconf','Password Conform','matches[password]');
+        }
+        if ($this->input->post('passconf')) {
+            
+            $this->form_validation->set_rules('passconf','Password Conform','matches[password]');
+        }
         $this->form_validation->set_rules('user_image','image');
 
         $this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
@@ -154,13 +161,18 @@ class userController extends CI_Controller{
         			//'user_id' => $this->input->post('uid'),
         			'user_name' => $this->input->post('uname'),
         			'user_email' => $this->input->post('email'),
-        			//'password' => sha1($this->input->post('password')),
+        			'password' => sha1($this->input->post('password')),
         			'role' => $this->input->post('role'),
         			'DOB' => $this->input->post('dob'),
         			'mobile' => $this->input->post('mobile'),
         			'address' => $this->input->post('address'),	
         			'avataar' => $update_filename
         		];
+
+                // if (!empty($this->input->post('password'))) {
+                //     $data['password'] = sha1($this->input->post('password'));
+                // }
+
         		$user = new userModel;
         		$res = $user->updateUser($data, $id);
 

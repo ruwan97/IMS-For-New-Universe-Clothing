@@ -22,7 +22,7 @@
             <div class="animated fadeIn">
                 <div class="row">
 
-                    <div class="container">
+                    <div class="col-md-12">
 
                         <!-- <?php if ($this->session->flashdata('status')): ?>
                             <div class="alert alert-success">
@@ -32,7 +32,7 @@
 
                         <div class="card">
                             <div class="card-header">
-								<strong class="card-title">Update User</strong>
+
                                 <strong class="pull-right">
                                     <a href="<?= site_url('users') ?>" class="btn btn-warning btn-flat rounded">
                                         <i class="fa fa-undo"> Back</i>
@@ -88,16 +88,16 @@
                                                 <textarea name="address" class="form-control" placeholder="Enter Address"><?=$this->input->post('address') ?? $user->address; ?></textarea> 
                                                 <span class="text-danger"><?php echo form_error('address'); ?></span>
                                             </div>
-                                            <!-- <div class="form-group">
+                                            <div class="form-group">
                                                 <label>Password *</label>
-                                                <input type="Password" name="password" value="" class ="form-control" placeholder="Enter Password">
+                                                <input type="Password" name="password" value="<?=$this->input->post('password')?>" class ="form-control" placeholder="Enter Password">
                                                 <span class="text-danger"><?php echo form_error('password');?></span>
                                             </div>
                                             <div class="form-group">
                                                 <label>Password Conformation *</label>
-                                                <input type="Password" name="passconf" value="" class="form-control" placeholder="Re Enter Password">
+                                                <input type="Password" name="passconf" value="<?=$this->input->post('passconf') ?>" class="form-control" placeholder="Re Enter Password">
                                                 <span class="text-danger"><?php echo form_error('passconf');?></span>
-                                            </div> -->
+                                            </div>
                                             <div class="form-group">
                                                 <label>Avataar *</label>
                                                 <input type="hidden" name="old_user_image" value="<?= $user->avataar; ?>">
