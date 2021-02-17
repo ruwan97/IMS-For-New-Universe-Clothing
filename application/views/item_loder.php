@@ -43,7 +43,7 @@ if (!empty($fetch_fabric_data)) {
 								$FabName = $_SESSION["stock"][$j]->material_description;
 								$FabColour = $_SESSION["stock"][$j]->color;
 								$Fabimg = $_SESSION["stock"][$j]->item_image;
-								$FabUnit = $_SESSION["stock"][$j]->material_unit;
+//								$FabUnit = $_SESSION["stock"][$j]->material_unit;
 								$FabType = $_SESSION["stock"][$j]->material_name;
 								?>
 
@@ -86,7 +86,7 @@ if (!empty($fetch_fabric_data)) {
 													Colour
 												</li>
 												<li class="active">
-													<h4><?php	echo $FabUnit;	?></h4>
+<!--													<h4>--><?php	//echo $FabUnit;	?><!--</h4>-->
 													Unit
 												</li>
 

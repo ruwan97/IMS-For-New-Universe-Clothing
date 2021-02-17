@@ -68,7 +68,7 @@
 								Quantity
 							</li>
 							<li class="active">
-								<h4><?php echo $r->due_date;  ?></h4>
+<!--								<h4>--><?php //echo $r->due_date;  ?><!--</h4>-->
 								Due Date
 							</li>
 							<li class="active">
